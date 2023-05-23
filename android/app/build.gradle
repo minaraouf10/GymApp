@@ -30,7 +30,7 @@ android {
         noCompress 'tflite'
         noCompress 'lite'
     }
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

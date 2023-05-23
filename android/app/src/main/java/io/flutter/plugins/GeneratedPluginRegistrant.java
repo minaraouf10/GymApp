@@ -23,6 +23,16 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin camera, io.flutter.plugins.camera.CameraPlugin", e);
     }
     try {
+      flutterEngine.getPlugins().add(new io.github.ponnamkarthik.toast.fluttertoast.FlutterToastPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin fluttertoast, io.github.ponnamkarthik.toast.fluttertoast.FlutterToastPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin shared_preferences_android, io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin", e);
+    }
+    try {
       sq.flutter.tflite.TflitePlugin.registerWith(shimPluginRegistry.registrarFor("sq.flutter.tflite.TflitePlugin"));
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin tflite, sq.flutter.tflite.TflitePlugin", e);
