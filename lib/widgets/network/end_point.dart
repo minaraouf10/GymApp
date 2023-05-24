@@ -1,4 +1,4 @@
-const String BASEURL = 'https://powerhousegym-8n6h.onrender.com/';
+const String BASEURL = 'https://powerhousegym-8n6h.onrender.com';
 
 const LOGIN = 'login/';
 

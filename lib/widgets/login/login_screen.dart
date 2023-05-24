@@ -12,7 +12,6 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class ShopLoginScreen extends StatelessWidget {
   ShopLoginScreen({Key key}) : super(key: key);
 
@@ -38,10 +37,9 @@ class ShopLoginScreen extends StatelessWidget {
               //
               //       token = state.loginModel.data.token,
               // });
-              navigateAndFinish(context,HomeScreen(cameras));
+              navigateAndFinish(context, HomeScreen(cameras));
               showToast(
                   text: state.loginModel.message, state: ToastState.SUCCESS);
-
             } else {
               showToast(
                   text: state.loginModel.message, state: ToastState.ERROR);
@@ -50,14 +48,14 @@ class ShopLoginScreen extends StatelessWidget {
         },
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(),
+            // appBar: AppBar(),
             body: Center(
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Form(
                     key: formKey,
-                    child: Column (
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -123,7 +121,7 @@ class ShopLoginScreen extends StatelessWidget {
                           condition: state is! ShopLoginLoadingState,
                           builder: (context) => defaultButton(
                             function: () {
-                              log(emailController.text,name: 'email');
+                              log(emailController.text, name: 'email');
                               if (formKey.currentState.validate()) {
                                 ShopLoginCubit.get(context).userLogin(
                                   email: emailController.text,
@@ -140,6 +138,9 @@ class ShopLoginScreen extends StatelessWidget {
                         const SizedBox(
                           height: 15.0,
                         ),
+                        defaultButton(function: () {
+                          navigateTo(context, HomeScreen(cameras));
+                        }, text: 'skip'),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

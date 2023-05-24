@@ -1,4 +1,5 @@
 import 'package:align_ai/widgets/login_model.dart';
+import 'package:align_ai/widgets/register_model.dart';
 
 
 abstract class ShopRegisterStates {}
@@ -8,9 +9,9 @@ class ShopRegisterInitialState extends ShopRegisterStates {}
 class ShopRegisterLoadingState extends ShopRegisterStates {}
 
 class ShopRegisterSuccessState extends ShopRegisterStates {
-   final LoginModel loginModel;
+   final RegisterModel registerModel;
 
-  ShopRegisterSuccessState(this.loginModel);
+  ShopRegisterSuccessState(this.registerModel);
 
 }
 

@@ -5,7 +5,6 @@ import 'package:align_ai/widgets/components.dart';
 import 'package:align_ai/widgets/login/cubit/states.dart';
 import 'package:align_ai/widgets/login_model.dart';
 import 'package:align_ai/widgets/network/end_point.dart';
-import 'package:align_ai/widgets/network/remote/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,17 +52,17 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
 //   }
 
 
-  void userLogin({
+ Future<void> userLogin({
     String email,
     String password,
   }) async {
     emit(ShopLoginLoadingState());
 
-    final response = await http.post(Uri.parse('${BASEURL}login/'),
+    final response = await http.post(Uri.parse('https://powerhousegym-8n6h.onrender.com/login/'),
         body: {
-      'username_or_email': email,
-      'password': password,
-    });
+          'username_or_email': email,
+          'password': password,
+        });
 
     if (response.statusCode == 200) {
       log(email, name: 'email dio');
@@ -79,7 +78,6 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
       emit(ShopLoginErrorState('Error: ${response.statusCode}'));
     }
   }
-
 
 
 

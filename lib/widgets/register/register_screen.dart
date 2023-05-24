@@ -10,18 +10,17 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key key}) : super(key: key);
 
   var formKey = GlobalKey<FormState>();
-  var firstNameController =TextEditingController();
-  var lastNameController =TextEditingController();
-  var heightNameController =TextEditingController();
-  var weightNameController =TextEditingController();
-  var genderNameController =TextEditingController();
-  var addressController =TextEditingController();
-  var gymController =TextEditingController();
+  var firstNameController = TextEditingController();
+  var lastNameController = TextEditingController();
+  var heightController = TextEditingController();
+  var weighController = TextEditingController();
+  var genderController = TextEditingController();
+  var addressController = TextEditingController();
+  var gymController = TextEditingController();
   var userNameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -33,27 +32,26 @@ class RegisterScreen extends StatelessWidget {
       create: (BuildContext context) => ShopRegisterCubit(),
       child: BlocConsumer<ShopRegisterCubit, ShopRegisterStates>(
         listener: (context, state) {
-          // if (state is ShopRegisterSuccessState) {
-          //   if (state.loginModel.status) {
-          //     log(state.loginModel.message);
-          //     log(state.loginModel.data.token);
-          //
-          //     CacheHelper.saveData(
-          //         key: 'token',
-          //         value: state.loginModel.data.token).then((value) => {
-          //
-          //       token = state.loginModel.data.token,
-          //
-          //       navigateAndFinish(context,HomeScreen(cameras))
-          //     });
-          //     showToast(
-          //         text: state.loginModel.message, state: ToastState.SUCCESS);
-          //
-          //   } else {
-          //     showToast(
-          //         text: state.loginModel.message, state: ToastState.ERROR);
-          //   }
-          // }
+          if (state is ShopRegisterSuccessState) {
+            if (state.registerModel.data.status == 'true') {
+             // print(state.loginModel.message);
+              //print(state.loginModel.data?.token);
+              //
+              // CacheHelper.saveData(
+              //     key: 'token',
+              //     value: state.loginModel.data?.token).then((value) => {
+              //
+              //       token = state.loginModel.data.token,
+              // });
+              navigateAndFinish(context,HomeScreen(cameras));
+              showToast(
+                  text:'success', state: ToastState.SUCCESS);
+
+            } else {
+              showToast(
+                  text: 'error', state: ToastState.ERROR);
+            }
+          }
         },
         builder: (context, state) => Scaffold(
           appBar: AppBar(),
@@ -126,7 +124,7 @@ class RegisterScreen extends StatelessWidget {
                         height: 15.0,
                       ),
                       defaultFormField(
-                        controller: heightNameController,
+                        controller: heightController,
                         type: TextInputType.number,
                         validate: (String value) {
                           if (value.isEmpty) {
@@ -140,7 +138,7 @@ class RegisterScreen extends StatelessWidget {
                         height: 15.0,
                       ),
                       defaultFormField(
-                        controller: weightNameController,
+                        controller: weighController,
                         type: TextInputType.number,
                         validate: (String value) {
                           if (value.isEmpty) {
@@ -154,7 +152,7 @@ class RegisterScreen extends StatelessWidget {
                         height: 15.0,
                       ),
                       defaultFormField(
-                        controller: genderNameController,
+                        controller: genderController,
                         type: TextInputType.text,
                         validate: (String value) {
                           if (value.isEmpty) {
@@ -195,7 +193,6 @@ class RegisterScreen extends StatelessWidget {
                       const SizedBox(
                         height: 15.0,
                       ),
-
                       defaultFormField(
                         controller: emailController,
                         type: TextInputType.emailAddress,
@@ -251,7 +248,14 @@ class RegisterScreen extends StatelessWidget {
                           function: () {
                             if (formKey.currentState.validate()) {
                               ShopRegisterCubit.get(context).userRegister(
-                                name: userNameController.text,
+                                firstName: firstNameController.text,
+                                lastName: lastNameController.text,
+                                userName: userNameController.text,
+                                height: heightController.text,
+                                weight: weighController.text,
+                                gender: genderController.text,
+                                address: addressController.text,
+                                gym: 1.toString(),
                                 email: emailController.text,
                                 password: passwordController.text,
                                 phone: phoneController.text,

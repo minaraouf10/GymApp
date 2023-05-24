@@ -1,15 +1,15 @@
-// class LoginModel {
-//     // bool status;
-//     // String message;
-//     UserData data;
-//
-//   LoginModel.fromJson(Map<String, dynamic> json)
-//   {
-//     // status = json['status'];
-//     // message = json['message'];
-//     data = json['data'] != null ? UserData.fromJson(json['data']) : null ;
-//   }
-// }
+class RegisterModel {
+    bool status;
+    //String message;
+    UserData data;
+
+  RegisterModel.fromJson(Map<String, dynamic> json)
+  {
+    status = json['status'];
+    // message = json['message'];
+    data = json['data'] != null ? UserData.fromJson(json['data']) : null ;
+  }
+}
 //
 // class UserData
 // {
@@ -36,7 +36,7 @@
 //   }
 // }
 
-class LoginModel {
+class UserData {
   final String status;
   final String firstName;
   final String lastName;
@@ -50,7 +50,7 @@ class LoginModel {
   final String password;
   final String email;
 
-  LoginModel({
+  UserData({
     this.status,
     this.message,
     this.username,
@@ -65,8 +65,8 @@ class LoginModel {
     this.email,
   });
 
-  factory LoginModel.fromJson(Map<String, dynamic> json) {
-    return LoginModel(
+  factory UserData.fromJson(Map<String, dynamic> json) {
+    return UserData(
       status: json['status'],
       message: json['message'],
       username: json['username'],
