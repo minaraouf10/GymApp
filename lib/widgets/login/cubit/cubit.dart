@@ -58,7 +58,7 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
   }) async {
     emit(ShopLoginLoadingState());
 
-    final response = await http.post(Uri.parse('https://powerhousegym-8n6h.onrender.com/login/'),
+    final response = await http.post(Uri.parse('https://powerhouse-zp6m.onrender.com/login/'),
         body: {
           'username_or_email': email,
           'password': password,

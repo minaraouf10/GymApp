@@ -37,7 +37,7 @@ class RegisterModel {
 // }
 
 class UserData {
-  final String status;
+  final bool status;
   final String firstName;
   final String lastName;
   final String userName;

@@ -60,7 +60,7 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
     log('enter loading register', name: 'loading register cubit');
     emit(ShopRegisterLoadingState());
 
-  await  http.post(Uri.parse('https://powerhousegym-8n6h.onrender.com/members/create/'),
+  await  http.post(Uri.parse('https://powerhouse-zp6m.onrender.com/members/create/'),
       body: {
       'first_name': firstName,
       'last_name': lastName,
@@ -69,21 +69,21 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
       'weight': weight,
       'gender': gender,
       'address': address,
-      'gym': gym,
+      'gym_name': gym,
       'email': email,
       'password': password,
       'phone_number': phone,
     }).then((response) {
-      print(response.body); // Print the response body
+      log(response.body,name: 'body'); // Print the response body
 
-      if (response.statusCode == 200) {
+      //if (response.statusCode == 200) {
         registerModel = RegisterModel.fromJson(json.decode(response.body));
-        log(registerModel.data.email.toString());
+        log(registerModel.data.email.toString(),name: 'email register');
         log(registerModel.status.toString());
         emit(ShopRegisterSuccessState(registerModel));
-      } else {
-        emit(ShopRegisterErrorState('Error: ${response.statusCode}'));
-      }
+      // } else {
+      //   emit(ShopRegisterErrorState('Error: ${response.statusCode}'));
+      // }
     }).catchError((error) {
       emit(ShopRegisterErrorState(error.toString()));
       print(error);

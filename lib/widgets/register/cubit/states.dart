@@ -10,7 +10,6 @@ class ShopRegisterLoadingState extends ShopRegisterStates {}
 
 class ShopRegisterSuccessState extends ShopRegisterStates {
    final RegisterModel registerModel;
-
   ShopRegisterSuccessState(this.registerModel);
 
 }
