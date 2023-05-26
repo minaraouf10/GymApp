@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:camera/camera.dart';
 import 'main_screen.dart';
-import 'home_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -28,7 +27,6 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       home: ShopLoginScreen(),
-      //home: MainScreen(cameras),
       routes: {
         MainScreen.id: (context) => MainScreen(cameras),
         //DemoScreen.id: (context) => DemoScreen(),

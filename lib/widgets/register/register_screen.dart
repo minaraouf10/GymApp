@@ -2,8 +2,6 @@ import 'dart:developer';
 import 'package:align_ai/home_screen.dart';
 import 'package:align_ai/main.dart';
 import 'package:align_ai/widgets/components.dart';
-import 'package:align_ai/widgets/constants.dart';
-import 'package:align_ai/widgets/network/local/cache_helper.dart';
 import 'package:align_ai/widgets/register/cubit/cubit.dart';
 import 'package:align_ai/widgets/register/cubit/states.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
@@ -35,14 +33,7 @@ class RegisterScreen extends StatelessWidget {
           if (state is ShopRegisterSuccessState) {
             if (state.registerModel.status ) {
               log(state.registerModel.status.toString(),name: 'in screen');
-              //print(state.loginModel.data?.token);
-              //
-              // CacheHelper.saveData(
-              //     key: 'token',
-              //     value: state.loginModel.data?.token).then((value) => {
-              //
-              //       token = state.loginModel.data.token,
-              // });
+
               navigateAndFinish(context,HomeScreen(cameras));
               showToast(
                   text:'success', state: ToastState.SUCCESS);

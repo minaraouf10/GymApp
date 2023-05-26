@@ -3,10 +3,8 @@ import 'dart:developer';
 import 'package:align_ai/home_screen.dart';
 import 'package:align_ai/main.dart';
 import 'package:align_ai/widgets/components.dart';
-import 'package:align_ai/widgets/constants.dart';
 import 'package:align_ai/widgets/login/cubit/cubit.dart';
 import 'package:align_ai/widgets/login/cubit/states.dart';
-import 'package:align_ai/widgets/network/local/cache_helper.dart';
 import 'package:align_ai/widgets/register/register_screen.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -29,14 +27,7 @@ class ShopLoginScreen extends StatelessWidget {
           if (state is ShopLoginSuccessState) {
             if (state.loginModel.status == 'true') {
               print(state.loginModel.message);
-              //print(state.loginModel.data?.token);
-              //
-              // CacheHelper.saveData(
-              //     key: 'token',
-              //     value: state.loginModel.data?.token).then((value) => {
-              //
-              //       token = state.loginModel.data.token,
-              // });
+
               navigateAndFinish(context, HomeScreen(cameras));
               showToast(
                   text: state.loginModel.message, state: ToastState.SUCCESS);
@@ -48,7 +39,6 @@ class ShopLoginScreen extends StatelessWidget {
         },
         builder: (context, state) {
           return Scaffold(
-            // appBar: AppBar(),
             body: Center(
               child: SingleChildScrollView(
                 child: Padding(
