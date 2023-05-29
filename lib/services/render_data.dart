@@ -332,13 +332,15 @@ class _RenderDataState extends State<RenderData> {
                   topLeft: Radius.circular(25.0),
                   topRight: Radius.circular(25)),
             ),
-            child: Column(
-              children: [
-                Text(
-                  '$whatToDo\nArm Presses: ${_counter.toString()}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    '$whatToDo\nArm Presses: ${_counter.toString()}',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

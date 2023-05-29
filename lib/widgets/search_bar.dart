@@ -14,13 +14,13 @@ class SearchBar extends StatelessWidget {
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(25),
       ),
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: description,
-          icon: Icon(LineAwesomeIcons.search),
-          border: InputBorder.none,
-        ),
-      ),
+      // child: TextField(
+      //   decoration: InputDecoration(
+      //     hintText: description,
+      //     icon: Icon(LineAwesomeIcons.search),
+      //     border: InputBorder.none,
+      //   ),
+      // ),
     );
   }
 }
