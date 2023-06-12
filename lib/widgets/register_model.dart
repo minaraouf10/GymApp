@@ -74,6 +74,7 @@ class UserData {
       lastName: json['last_name'],
       password: json['password'],
       email: json['email'],
+      phone: json['phone_number']
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:align_ai/main.dart';
+import 'package:align_ai/widgets/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:camera/camera.dart';
@@ -19,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   static List<Widget> _widgetOptions = <Widget>[
     MainScreen(cameras),
     WorkOutPage(),
-    Image.asset('images/construction.PNG'),
+    SettingsScreen()
+   // Image.asset('images/construction.PNG'),
   ];
 
   void _onItemTapped(int index) {
