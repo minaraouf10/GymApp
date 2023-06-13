@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:align_ai/home_screen.dart';
 import 'package:align_ai/main.dart';
 import 'package:align_ai/widgets/components.dart';
@@ -87,7 +86,7 @@ class ShopLoginScreen extends StatelessWidget {
                             ShopLoginCubit.get(context)
                                 .changePasswordVisibility();
                           },
-                          onSbmitted: (value) {
+                          onSubmitted: (value) {
                             if (formKey.currentState.validate()) {
                               ShopLoginCubit.get(context).userLogin(
                                 email: emailController.text,

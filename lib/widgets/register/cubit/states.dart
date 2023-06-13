@@ -1,4 +1,3 @@
-import 'package:align_ai/widgets/login_model.dart';
 import 'package:align_ai/widgets/register_model.dart';
 
 

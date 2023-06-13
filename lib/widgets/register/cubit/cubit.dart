@@ -1,8 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:align_ai/widgets/login_model.dart';
-import 'package:align_ai/widgets/network/end_point.dart';
-import 'package:align_ai/widgets/network/remote/dio_helper.dart';
 import 'package:align_ai/widgets/register/cubit/states.dart';
 import 'package:align_ai/widgets/register_model.dart';
 import 'package:flutter/material.dart';
@@ -16,33 +13,6 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
   static ShopRegisterCubit get(context) => BlocProvider.of(context);
 
   RegisterModel registerModel;
-
-  // void userRegister({
-  //    String name,
-  //    String email,
-  //    String password,
-  //    String phone,
-  // }) {
-  //   log('enter loading register',name: 'loading register cubit');
-  //   emit(ShopRegisterLoadingState());
-  //
-  //   DioHelper.postData(url: REGISTER, data: {
-  //     'name': name,
-  //     'email': email,
-  //     'password': password,
-  //     'phone': phone,
-  //   }).then((value) {
-  //
-  //     print(value.data); //must print not log
-  //
-  //     loginModel = LoginModel.fromJson(value.data);
-  //     emit(ShopRegisterSuccessState(loginModel));
-  //   }).catchError((error, stackTrace) {
-  //     emit(ShopRegisterErrorState(error));
-  //     print(error);
-  //     print(stackTrace);
-  //   });
-  // }
 
   void userRegister({
     String firstName,
@@ -76,14 +46,11 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
     }).then((response) {
       log(response.body,name: 'body'); // Print the response body
 
-      //if (response.statusCode == 200) {
         registerModel = RegisterModel.fromJson(json.decode(response.body));
         log(registerModel.data.email.toString(),name: 'email register');
         log(registerModel.status.toString());
         emit(ShopRegisterSuccessState(registerModel));
-      // } else {
-      //   emit(ShopRegisterErrorState('Error: ${response.statusCode}'));
-      // }
+
     }).catchError((error) {
       emit(ShopRegisterErrorState(error.toString()));
       print(error);

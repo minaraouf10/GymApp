@@ -31,17 +31,15 @@ class RegisterScreen extends StatelessWidget {
       child: BlocConsumer<ShopRegisterCubit, ShopRegisterStates>(
         listener: (context, state) {
           if (state is ShopRegisterSuccessState) {
-            if (state.registerModel.status ) {
-              log(state.registerModel.status.toString(),name: 'in screen');
+            if (state.registerModel.status) {
+              log(state.registerModel.status.toString(), name: 'in screen');
 
-              navigateAndFinish(context,HomeScreen(cameras));
+              navigateAndFinish(context, HomeScreen(cameras));
+              showToast(text: 'success', state: ToastState.SUCCESS);
+            } else {
               showToast(
-                  text:'success', state: ToastState.SUCCESS);
-
-            }
-            else {
-              showToast(
-                  text: state.registerModel.toString(), state: ToastState.ERROR);
+                  text: state.registerModel.toString(),
+                  state: ToastState.ERROR);
             }
           }
         },
@@ -207,7 +205,7 @@ class RegisterScreen extends StatelessWidget {
                           ShopRegisterCubit.get(context)
                               .changePasswordVisibility();
                         },
-                        onSbmitted: (value) {},
+                        onSubmitted: (value) {},
                         isPassword: ShopRegisterCubit.get(context).isPassword,
                         validate: (String value) {
                           if (value.isEmpty) {

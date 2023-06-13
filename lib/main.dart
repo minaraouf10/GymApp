@@ -14,7 +14,6 @@ List<CameraDescription> cameras;
 
 Future<Null> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DioHelper.init();
   try {
     cameras = await availableCameras();
   } on CameraException catch (e) {
@@ -32,6 +31,20 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
+            theme: ThemeData(
+              primarySwatch: MaterialColor(0xFFFE7C7C, <int, Color>{
+                50: Color(0xFFFFF0F0),
+                100: Color(0xFFFFD2D2),
+                200: Color(0xFFFFA4A4),
+                300: Color(0xFFFF7676),
+                400: Color(0xFFFF4848),
+                500: Color(0xFFFE7C7C),
+                600: Color(0xFFFE4E4E),
+                700: Color(0xFFFE2020),
+                800: Color(0xFFFE0C0C),
+                900: Color(0xFFFE0606),
+              }),
+            ),
             navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: false,
             home: ShopLoginScreen(),
