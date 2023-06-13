@@ -1,7 +1,6 @@
 import 'package:align_ai/widgets/cubit/cubit.dart';
 import 'package:align_ai/widgets/cubit/states.dart';
 import 'package:align_ai/widgets/login/login_screen.dart';
-import 'package:align_ai/widgets/network/remote/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:camera/camera.dart';
