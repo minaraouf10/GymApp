@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:align_ai/home_screen.dart';
 import 'package:align_ai/main.dart';
 import 'package:align_ai/widgets/components.dart';
+import 'package:align_ai/widgets/cubit/cubit.dart';
 import 'package:align_ai/widgets/login/cubit/cubit.dart';
 import 'package:align_ai/widgets/login/cubit/states.dart';
 import 'package:align_ai/widgets/register/register_screen.dart';
@@ -129,6 +130,7 @@ class ShopLoginScreen extends StatelessWidget {
                         ),
                         defaultButton(function: () {
                           navigateTo(context, HomeScreen(cameras));
+                          id = 25;
                         }, text: 'skip'),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

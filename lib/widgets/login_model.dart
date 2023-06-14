@@ -1,5 +1,6 @@
 class LoginModel {
   final String status;
+  final int id;
   final String firstName;
   final String lastName;
   final String userName;
@@ -15,6 +16,7 @@ class LoginModel {
 
   LoginModel({
     this.status,
+    this.id,
     this.message,
     this.password,
     this.userName,
@@ -32,6 +34,7 @@ class LoginModel {
   factory LoginModel.fromJson(Map<String, dynamic> json) {
     return LoginModel(
       status: json['status'],
+      id: json['id'] as int,
       message: json['message'],
       userName: json['username'],
       firstName: json['first_name'],

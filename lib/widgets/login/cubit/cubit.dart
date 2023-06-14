@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:align_ai/widgets/components.dart';
+import 'package:align_ai/widgets/cubit/cubit.dart';
 import 'package:align_ai/widgets/login/cubit/states.dart';
 import 'package:align_ai/widgets/login_model.dart';
 import 'package:flutter/material.dart';
@@ -31,10 +33,12 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
       log(email, name: 'email dio');
       print(response.body);
       loginModel = LoginModel.fromJson(json.decode(response.body));
-      print(loginModel.userName);
       print(loginModel.status);
       print(loginModel.message);
+      print(loginModel.id);
+      id = loginModel.id;
       log('login success', name: 'login');
+      log(id.toString() , name: 'id');
       emit(ShopLoginSuccessState(loginModel));
     } else {
       print('Error: ${response.statusCode}');

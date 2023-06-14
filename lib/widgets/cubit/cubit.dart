@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:align_ai/widgets/components.dart';
 import 'package:align_ai/widgets/cubit/states.dart';
 import 'package:align_ai/widgets/login_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,14 +14,18 @@ class ShopCubit extends Cubit<ShopStates> {
 
   static ShopCubit get(context) => BlocProvider.of(context);
 
-  Map<int, bool> favorite = {};
-
 
   void getUserData() {
+
     emit(ShopLoadingUserDataState());
 
-    http.get(Uri.parse('https://powerhouse-zp6m.onrender.com/members/get/25/'), headers: {
-    }).then((response) {
+
+    http
+        .post(Uri.parse('https://powerhouse-zp6m.onrender.com/members/get/'),
+         body: {
+           "id": id.toString()
+         })
+        .then((response) {
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
         userModel = LoginModel.fromJson(jsonData);
@@ -32,11 +37,10 @@ class ShopCubit extends Cubit<ShopStates> {
       }
     }).catchError((error, stackTrace) {
       emit(ShopErrorUserDataState());
-      log(error);
-      log(stackTrace);
+      log(error.toString());
+      log(stackTrace.toString());
     });
   }
-
 
   void updateUserData({
     String name,

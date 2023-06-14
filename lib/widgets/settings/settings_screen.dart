@@ -21,6 +21,7 @@ class SettingsScreen extends StatelessWidget {
   var gymNameController = TextEditingController();
 
   Widget build(BuildContext context) {
+    ShopCubit.get(context).getUserData();
     return BlocConsumer<ShopCubit, ShopStates>(
       listener: (context, state) {},
       builder: (context, state) {
