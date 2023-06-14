@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:align_ai/home_screen.dart';
 import 'package:align_ai/main.dart';
 import 'package:align_ai/widgets/components.dart';
+import 'package:align_ai/widgets/login/login_screen.dart';
 import 'package:align_ai/widgets/register/cubit/cubit.dart';
 import 'package:align_ai/widgets/register/cubit/states.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
@@ -250,6 +251,10 @@ class RegisterScreen extends StatelessWidget {
                                 password: passwordController.text,
                                 phone: phoneController.text,
                               );
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ShopLoginScreen()));
                             }
                           },
                           text: 'register',
