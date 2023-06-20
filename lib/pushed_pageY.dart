@@ -50,7 +50,7 @@ class _PushedPageYState extends State<PushedPageY> {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('AlignAI Warrior Pose'),
+        title: Text('Warrior Pose'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),

@@ -216,6 +216,33 @@ class SettingsScreen extends StatelessWidget {
                     const SizedBox(
                       height: 40.0,
                     ),
+                    ConditionalBuilder(
+                      condition: state is! ShopLoadingUpdateUserState,
+                      builder: (context) => defaultButton(
+                        function: () {
+                          if (formKey.currentState.validate()) {
+                            ShopCubit.get(context).updateUserData(
+                              userName: userNameController.text,
+                              email: emailController.text,
+                              phone: phoneController.text,
+                              address: addressController.text,
+                              gender: genderController.text,
+                              height: heightController.text,
+                              firstName: firstNameController.text,
+                              gymName: gymNameController.text,
+                              lastName: lastNameController.text,
+                              weight: weightController.text,
+                            );
+                          }
+                        },
+                        text: 'Update',
+                      ),
+                      fallback: (context) =>
+                          Center(child: CircularProgressIndicator()),
+                    ),
+                    SizedBox(
+                      height: 40.0,
+                    )
                   ],
                 ),
               ),

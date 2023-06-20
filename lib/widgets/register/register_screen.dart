@@ -45,7 +45,6 @@ class RegisterScreen extends StatelessWidget {
           }
         },
         builder: (context, state) => Scaffold(
-          appBar: AppBar(),
           body: Center(
             child: SingleChildScrollView(
               child: Padding(

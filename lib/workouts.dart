@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:align_ai/widgets/search_bar.dart';
+import 'widgets/search_bar.dart';
 
 class WorkOutPage extends StatelessWidget {
   @override

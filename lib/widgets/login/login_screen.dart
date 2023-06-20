@@ -46,8 +46,18 @@ class ShopLoginScreen extends StatelessWidget {
                   child: Form(
                     key: formKey,
                     child: Column(
+
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Align(
+                          alignment: AlignmentDirectional.center,
+                          child: Container(
+                            height: 250.0,
+                              width: 250.0,
+                              child: Image.asset('images/login_fady.jpg'),
+                          ),
+                        ),
+                        SizedBox(height: 20.0,),
                         Text(
                           'LOGIN',
                           style: Theme.of(context)

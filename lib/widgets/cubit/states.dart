@@ -1,5 +1,5 @@
 
-import 'package:align_ai/widgets/login_model.dart';
+import '../login_model.dart';
 
 abstract class ShopStates {}
 

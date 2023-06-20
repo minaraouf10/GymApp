@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:align_ai/widgets/components.dart';
-import 'package:align_ai/widgets/cubit/cubit.dart';
-import 'package:align_ai/widgets/login/cubit/states.dart';
-import 'package:align_ai/widgets/login_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import '../../components.dart';
+import '../../login_model.dart';
+import 'states.dart';
 
 
 class ShopLoginCubit extends Cubit<ShopLoginStates> {

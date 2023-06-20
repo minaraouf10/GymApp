@@ -8,8 +8,14 @@ class RenderData extends StatefulWidget {
   final double screenH;
   final double screenW;
 
-  RenderData(
-      {this.data, this.previewH, this.previewW, this.screenH, this.screenW});
+  RenderData({
+    this.data,
+    this.previewH,
+    this.previewW,
+    this.screenH,
+    this.screenW,
+  });
+
   @override
   _RenderDataState createState() => _RenderDataState();
 }
@@ -351,13 +357,16 @@ class _RenderDataState extends State<RenderData> {
 
 class Vector {
   double x, y;
+
   Vector(this.x, this.y);
 }
 
 class MyPainter extends CustomPainter {
   Vector left;
   Vector right;
+
   MyPainter({this.left, this.right});
+
   @override
   void paint(Canvas canvas, Size size) {
     final p1 = Offset(left.x, left.y);

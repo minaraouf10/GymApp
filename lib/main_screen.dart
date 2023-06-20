@@ -1,7 +1,7 @@
 import 'package:align_ai/main.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:align_ai/widgets/search_bar.dart';
+import '../widgets/search_bar.dart';
 
 import 'pushed_pageA.dart';
 import 'pushed_pageS.dart';
@@ -50,7 +50,7 @@ class MainScreen extends StatelessWidget {
             //   ),
             // ),
             SizedBox(height: 10),
-            Image.asset('images/align.PNG'),
+            Image.asset('images/fady.jpg'),
             SizedBox(height: 10),
             Container(
               padding: EdgeInsets.only(left: 16.0, right: 16.0),
